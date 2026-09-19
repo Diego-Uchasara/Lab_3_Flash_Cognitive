@@ -33,7 +33,7 @@ Esta cuenta entra directamente al sistema y permite crear, editar y eliminar usu
 
 ## Prueba de código por correo
 
-Los usuarios normales solicitan un código enviado al correo registrado. Para probar este flujo, inicia sesión con un usuario que tenga un correo válido. Para que funcione debe llenar .env.example con los datos del correo de envio y la contraseña de aplicacion, para que este cumpla la funcion de enviar codigo. Por privacidad no subire mis credenciales de forma publica.
+Los usuarios normales solicitan un código enviado al correo registrado. Para probar este flujo, inicia sesión con un usuario que tenga un correo válido. Para que funcione debe llenar .env.example con los datos del correo de envio y la contraseña de aplicacion, para que este cumpla la funcion de enviar codigo; una vez llenado cambiar .env.example. a .env para el correcto funcionamiento. Por privacidad no subire mis credenciales de forma publica.
 
 ## Detener la aplicación
 
