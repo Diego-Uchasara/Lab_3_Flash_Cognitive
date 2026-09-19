@@ -11,7 +11,7 @@ Tener Docker Desktop instalado y abierto.
 Se recomienda configurar el correo antes del primer inicio para poder probar el código de validación. En la carpeta del proyecto crea `.env` con:
 
 ```powershell
-Copy-Item .env.example .env
+Copy-Item Copy.env .env
 ```
 
 Luego completa `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM` y `ADMIN_EMAIL` dentro de `.env` con los datos de tu correo Gmail. En `SMTP_PASSWORD` usa una **contraseña de aplicación de Gmail**, no tu contraseña normal.
