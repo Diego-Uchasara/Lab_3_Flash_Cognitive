@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Validar código{% endblock %}
+{% block content %}
+<section class="auth-card card shadow-sm mx-auto">
+  <div class="card-body p-4 p-md-5">
+    <h1 class="h3">Confirma tu identidad</h1>
+    <p class="text-secondary">Ingresa el código de seis dígitos enviado a tu correo.</p>
+    <form action="{{ url_for('auth.confirmar_codigo') }}" method="post">
+      <label class="form-label" for="codigo">Código</label>
+      <input class="form-control form-control-lg text-center codigo" id="codigo" name="codigo" inputmode="numeric" maxlength="6" required autofocus>
+      <button class="btn btn-primary w-100 mt-4">Validar y continuar</button>
+    </form>
+    <a class="btn btn-link w-100 mt-2" href="{{ url_for('auth.cancelar_login') }}">Volver al inicio de sesión</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Editar' if usuario else 'Nuevo' }} usuario{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4"><h1 class="h2 mb-0">{{ 'Editar' if usuario else 'Nuevo' }} usuario</h1><a class="btn btn-outline-secondary" href="{{ url_for('usuarios.listar') }}">Volver</a></div>
+<section class="card shadow-sm"><div class="card-body p-4"><form method="post" action="{{ url_for('usuarios.actualizar', usuario_id=usuario.id) if usuario else url_for('usuarios.crear') }}">
+  <div class="row g-3">
+    <div class="col-md-6"><label class="form-label" for="nombre">Nombre completo</label><input class="form-control" id="nombre" name="nombre" value="{{ usuario.nombre if usuario else '' }}" required></div>
+    <div class="col-md-6"><label class="form-label" for="username">Usuario</label><input class="form-control" id="username" name="username" value="{{ usuario.username if usuario else '' }}" required></div>
+    <div class="col-md-6"><label class="form-label" for="email">Correo</label><input class="form-control" id="email" name="email" type="email" value="{{ usuario.email if usuario else '' }}" required></div>
+    <div class="col-md-6"><label class="form-label" for="rol">Rol</label><select class="form-select" id="rol" name="rol"><option value="usuario" {{ 'selected' if usuario and usuario.rol == 'usuario' }}>usuario</option><option value="admin" {{ 'selected' if usuario and usuario.rol == 'admin' }}>admin</option></select></div>
+    <div class="col-md-6"><label class="form-label" for="password">Contraseña{% if usuario %} <span class="text-secondary">(déjala vacía para conservarla)</span>{% endif %}</label><input class="form-control" id="password" name="password" type="password" {% if not usuario %}required{% endif %} minlength="6"></div>
+  </div>
+  <button class="btn btn-primary mt-4">{{ 'Guardar cambios' if usuario else 'Crear usuario' }}</button>
+</form></div></section>
+{% endblock %}
