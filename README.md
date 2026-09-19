@@ -40,7 +40,7 @@ Los usuarios normales solicitan un código enviado al correo registrado. Para en
 1. En la carpeta del proyecto, crea el archivo `.env` con este comando:
 
    ```powershell
-   Copy-Item .env.example .env
+   Copy-Item Copy.example .env
    ```
 
 2. Abre `.env` y completa estos datos:
