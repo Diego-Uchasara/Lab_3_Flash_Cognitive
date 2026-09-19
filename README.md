@@ -8,15 +8,28 @@ Tener Docker Desktop instalado y abierto.
 
 ## Antes de iniciar: configurar el correo
 
-Se recomienda configurar el correo antes del primer inicio para poder probar el código de validación. En la carpeta del proyecto crea `.env` con:
+Se recomienda configurar el correo antes del primer inicio para poder probar el código de validación.
 
-```powershell
-Copy-Item Copy.env .env
-```
+1. En la carpeta del proyecto crea `.env` con:
 
-Luego completa `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM` y `ADMIN_EMAIL` dentro de `.env` con los datos de tu correo Gmail. En `SMTP_PASSWORD` usa una **contraseña de aplicación de Gmail**, no tu contraseña normal.
+   ```powershell
+   Copy-Item Copy.env .env
+   ```
 
-Si olvidaste hacerlo, no hay problema: edita `.env` más tarde y reinicia con `docker compose up --build -d`.
+2. Abre `.env` y completa estos datos:
+
+   ```text
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=tu_correo@gmail.com
+   SMTP_PASSWORD=tu_contrasena_de_aplicacion
+   SMTP_FROM=tu_correo@gmail.com
+   ADMIN_EMAIL=tu_correo@gmail.com
+   ```
+
+3. En `SMTP_PASSWORD` usa una **contraseña de aplicación de Gmail**, no tu contraseña normal.
+
+Si olvidaste hacerlo, no hay problema: edita `.env` más tarde y reinicia con `docker compose up --build -d`. `.env` contiene datos privados y no se sube a GitHub.
 
 ## Ejecutar la aplicación
 
@@ -45,36 +58,7 @@ Esta cuenta entra directamente al sistema y permite crear, editar y eliminar usu
 
 ## Prueba de código por correo
 
-Los usuarios normales solicitan un código enviado al correo registrado. Para enviar códigos reales se configura el archivo privado `.env`.
-
-### Configurar el correo
-
-1. Si todavía no creaste `.env`, usa este comando:
-
-   ```powershell
-   Copy-Item .env.example .env
-   ```
-
-2. Abre `.env` y completa estos datos:
-
-   ```text
-   SMTP_HOST=smtp.gmail.com
-   SMTP_PORT=587
-   SMTP_USER=tu_correo@gmail.com
-   SMTP_PASSWORD=tu_contrasena_de_aplicacion
-   SMTP_FROM=tu_correo@gmail.com
-   ADMIN_EMAIL=tu_correo@gmail.com
-   ```
-
-3. Reinicia la aplicación:
-
-   ```powershell
-   docker compose up --build -d
-   ```
-
-4. Inicia sesión con `admin`. El código llegará al correo definido en `ADMIN_EMAIL`.
-
-`.env` contiene datos privados y no se sube a GitHub. `.env.example` es solo una plantilla pública.
+Los usuarios normales solicitan un código enviado al correo registrado. Inicia sesión con `admin`; el código llegará al correo definido en `ADMIN_EMAIL`.
 
 ## Detener la aplicación
 
