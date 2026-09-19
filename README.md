@@ -33,7 +33,37 @@ Esta cuenta entra directamente al sistema y permite crear, editar y eliminar usu
 
 ## Prueba de código por correo
 
-Los usuarios normales solicitan un código enviado al correo registrado. Para probar este flujo, inicia sesión con un usuario que tenga un correo válido. Para que funcione debe llenar .env.example con los datos del correo de envio y la contraseña de aplicacion, para que este cumpla la funcion de enviar codigo; una vez llenado cambiar - Copy.env a .env para el correcto funcionamiento. Por privacidad no subire mis credenciales de forma publica.
+Los usuarios normales solicitan un código enviado al correo registrado. Para enviar códigos reales se configura el archivo privado `.env`.
+
+### Configurar el correo
+
+1. En la carpeta del proyecto, crea el archivo `.env` con este comando:
+
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+2. Abre `.env` y completa estos datos:
+
+   ```text
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=tu_correo@gmail.com
+   SMTP_PASSWORD=tu_contrasena_de_aplicacion
+   SMTP_FROM=tu_correo@gmail.com
+   ADMIN_EMAIL=tu_correo@gmail.com
+   ```
+
+3. En `SMTP_PASSWORD` usa una **contraseña de aplicación de Gmail**, no tu contraseña normal.
+4. Reinicia la aplicación:
+
+   ```powershell
+   docker compose up --build -d
+   ```
+
+5. Inicia sesión con `admin`. El código llegará al correo definido en `ADMIN_EMAIL`.
+
+`.env` contiene datos privados y no se sube a GitHub. `.env.example` es solo una plantilla pública: se usa para crear `.env` con el comando `Copy-Item .env.example .env`.
 
 ## Detener la aplicación
 
